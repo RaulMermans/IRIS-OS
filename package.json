@@ -2,7 +2,7 @@
   "name": "jarvis-os-public",
   "private": true,
   "description": "JARVIS OS — public architecture edition. Illustrative type-only contracts.",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "typecheck": "tsc --noEmit -p ."
   },
