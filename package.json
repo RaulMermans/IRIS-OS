@@ -1,0 +1,12 @@
+{
+  "name": "jarvis-os-public",
+  "private": true,
+  "description": "JARVIS OS — public architecture edition. Illustrative type-only contracts.",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
