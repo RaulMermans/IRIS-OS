@@ -1,0 +1,36 @@
+{
+  "_note": "Fully synthetic; autonomy levels and policy decisions shown are illustrative, not production policy. No real people, accounts, messages or events.",
+  "date": "2030-03-14",
+  "timezone": "Europe/Madrid",
+  "brief": {
+    "generatedAt": "2030-03-14T07:58:00+01:00",
+    "topPriorities": [
+      { "id": "wi_001", "priority": "P1", "title": "Resolve 11:00 calendar conflict", "category": "schedule" },
+      { "id": "wi_002", "priority": "P1", "title": "Reply to Studio Kestrel on the revised proposal", "category": "reply_needed" },
+      { "id": "wi_003", "priority": "P2", "title": "Prepare notes for Thursday's Harbor Labs review", "category": "preparation" },
+      { "id": "wi_004", "priority": "P3", "title": "Lumen project milestone drifting by two days", "category": "risk" }
+    ],
+    "sourceCoverage": [
+      { "source": "calendar", "status": "ready" },
+      { "source": "gmail", "status": "ready" },
+      { "source": "task", "status": "ready" },
+      { "source": "project", "status": "ready" },
+      { "source": "relationship", "status": "degraded" },
+      { "source": "memory", "status": "ready" }
+    ],
+    "limitations": ["Relationship context is 3 days old; relationship-based signals carry lower confidence."]
+  },
+  "timeline": [
+    { "t": "08:00", "stage": "attention", "event": "calendar_conflict_detected", "detail": "Two events overlap 11:00–11:30", "evidence": ["ev_cal_101", "ev_cal_102"] },
+    { "t": "08:02", "stage": "attention", "event": "work_item_created", "workItemId": "wi_001", "priority": "P1" },
+    { "t": "08:03", "stage": "team", "event": "proposal_created", "agent": "VECTOR", "proposalId": "ap_001", "detail": "Move 'Weekly 1:1' to 14:00 (both attendees free)" },
+    { "t": "08:03", "stage": "team", "event": "review_passed", "agent": "SENTINEL", "detail": "Grounded in both calendar events; no new conflict introduced" },
+    { "t": "08:04", "stage": "policy", "event": "policy_evaluated", "proposalId": "ap_001", "autonomyLevel": "A2", "decision": "require_approval", "reasons": ["External calendar change", "Affects another attendee"] },
+    { "t": "08:05", "stage": "approval", "event": "approval_requested", "approvalId": "apr_001", "expiresAt": "2030-03-14T10:30:00+01:00" },
+    { "t": "08:07", "stage": "approval", "event": "approval_decided", "approvalId": "apr_001", "decision": "approved", "decidedBy": "operator" },
+    { "t": "08:07", "stage": "execution", "event": "action_executed", "proposalId": "ap_001", "status": "executed", "attempt": 1 },
+    { "t": "08:08", "stage": "execution", "event": "action_verified", "proposalId": "ap_001", "status": "verified", "checkedAgainst": "Re-read event cal_202: start 14:00" },
+    { "t": "08:09", "stage": "memory", "event": "episodic_recorded", "memoryId": "mem_ep_001" },
+    { "t": "08:09", "stage": "attention", "event": "work_item_resolved", "workItemId": "wi_001" }
+  ]
+}

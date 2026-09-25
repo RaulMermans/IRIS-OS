@@ -1,0 +1,37 @@
+{
+  "_note": "Fully synthetic trace of one team run. Event names illustrate the shared trace shape; they are not the production event schema.",
+  "runId": "run_7f3a",
+  "objective": "Resolve work item wi_001 (calendar conflict)",
+  "events": [
+    { "seq": 1, "at": "08:02:10", "type": "run_started", "actor": "system:router" },
+    { "seq": 2, "at": "08:02:11", "type": "agent_state", "agent": "POLARIS", "activity": "thinking", "objective": "Plan conflict resolution" },
+    { "seq": 3, "at": "08:02:14", "type": "handoff", "from": "POLARIS", "to": "VOYAGER", "purpose": "delegate" },
+    { "seq": 4, "at": "08:02:15", "type": "agent_state", "agent": "VOYAGER", "activity": "working", "objective": "Gather availability for both attendees" },
+    { "seq": 5, "at": "08:02:31", "type": "tool_call_completed", "agent": "VOYAGER", "tool": "calendar.read_availability", "permission": "read_only" },
+    { "seq": 6, "at": "08:02:33", "type": "handoff", "from": "VOYAGER", "to": "POLARIS", "purpose": "return_result" },
+    { "seq": 7, "at": "08:02:35", "type": "handoff", "from": "POLARIS", "to": "VECTOR", "purpose": "delegate" },
+    { "seq": 8, "at": "08:02:51", "type": "proposal_created", "agent": "VECTOR", "proposalId": "ap_001", "intent": "Move 'Weekly 1:1' to 14:00", "reversibility": "reversible" },
+    { "seq": 9, "at": "08:02:52", "type": "handoff", "from": "POLARIS", "to": "SENTINEL", "purpose": "request_review" },
+    { "seq": 10, "at": "08:03:05", "type": "agent_state", "agent": "SENTINEL", "activity": "reviewing", "objective": "Check grounding and side effects" },
+    { "seq": 11, "at": "08:03:12", "type": "handoff", "from": "SENTINEL", "to": "POLARIS", "purpose": "review_verdict", "verdict": "pass" },
+    { "seq": 12, "at": "08:04:00", "type": "policy_evaluated", "proposalId": "ap_001", "autonomyLevel": "A2", "decision": "require_approval" },
+    { "seq": 13, "at": "08:05:00", "type": "approval_requested", "approvalId": "apr_001" },
+    { "seq": 14, "at": "08:05:00", "type": "agent_state", "agent": "POLARIS", "activity": "waiting_for_approval" },
+    { "seq": 15, "at": "08:07:02", "type": "approval_decided", "approvalId": "apr_001", "decision": "approved" },
+    { "seq": 16, "at": "08:07:04", "type": "action_executed", "proposalId": "ap_001", "status": "executed", "attempt": 1 },
+    { "seq": 17, "at": "08:08:01", "type": "action_verified", "proposalId": "ap_001", "status": "verified" },
+    { "seq": 18, "at": "08:09:00", "type": "memory_recorded", "kind": "episodic", "memoryId": "mem_ep_001" },
+    { "seq": 19, "at": "08:09:01", "type": "run_completed", "outcome": "resolved" }
+  ],
+  "episodicMemory": {
+    "id": "mem_ep_001",
+    "kind": "episodic",
+    "scope": { "workspaceId": "ws_demo", "subjectIds": ["proj_harbor", "person_ana"], "privacy": "internal" },
+    "provenance": { "recordedBy": { "kind": "system", "component": "action-runtime" }, "originId": "run_7f3a", "evidence": [] },
+    "content": "Resolved an 11:00 overlap by moving the weekly 1:1 to 14:00; approved by the operator and verified.",
+    "confidence": "high",
+    "observedAt": "2030-03-14T08:08:00+01:00",
+    "recordedAt": "2030-03-14T08:09:00+01:00",
+    "stale": false
+  }
+}

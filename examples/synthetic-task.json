@@ -1,0 +1,30 @@
+{
+  "_note": "Fully synthetic. Shaped like interfaces/work-item.ts (WorkItem).",
+  "id": "wi_001",
+  "title": "Resolve 11:00 calendar conflict",
+  "summary": "'Weekly 1:1' overlaps with 'Harbor Labs kickoff' from 11:00 to 11:30.",
+  "category": "schedule",
+  "priority": "P1",
+  "factors": {
+    "importance": "high",
+    "urgency": "high",
+    "confidence": "high",
+    "risk": "medium",
+    "autonomy": "needs_approval",
+    "notificationRelevance": "brief"
+  },
+  "signals": [
+    { "code": "time_conflict", "label": "Two accepted events overlap today", "evidenceIds": ["ev_cal_101", "ev_cal_102"] },
+    { "code": "external_party", "label": "One event includes an external attendee", "evidenceIds": ["ev_cal_102"] }
+  ],
+  "evidence": [
+    { "id": "ev_cal_101", "source": "calendar", "sourceRecordId": "cal_201", "title": "Weekly 1:1", "occurredAt": "2030-03-14T11:00:00+01:00" },
+    { "id": "ev_cal_102", "source": "calendar", "sourceRecordId": "cal_202", "title": "Harbor Labs kickoff", "occurredAt": "2030-03-14T11:00:00+01:00" }
+  ],
+  "rawContentIncluded": false,
+  "dueAt": "2030-03-14T11:00:00+01:00",
+  "relatedPeople": ["person_ana", "person_harbor_lead"],
+  "relatedProjects": ["proj_harbor"],
+  "state": "resolved",
+  "createdAt": "2030-03-14T08:02:00+01:00"
+}
