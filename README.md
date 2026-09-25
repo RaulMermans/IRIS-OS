@@ -7,6 +7,8 @@ _what needs my attention today?_**
 
 It collects context from calendar, email, tasks, projects, relationships and memory. It decides what deserves attention, coordinates a team of bounded specialist agents, and only acts through governed, verifiable, recoverable actions under explicit human approval.
 
+![Status: public architecture edition](https://img.shields.io/badge/status-public%20architecture%20edition-555) ![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey) ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey) ![Private system: V1 pre-HALO](https://img.shields.io/badge/private%20system-V1%20pre--HALO-2f6f4f)
+
 ![Agent Galaxy — JARVIS delegating from the research agent to the analyst](screenshots/galaxy-delegation.png)
 
 <sub>The Agent Galaxy: JARVIS is the central body, and each specialist agent is a star. Here the research agent hands evidence to the analyst. All data in these screenshots is synthetic.</sub>
@@ -77,6 +79,10 @@ One authoritative router sits in front of every capability. One attention engine
 | **Observable by construction** | Workflows, agents and actions all emit one trace-event shape, so one inspector understands all of them. |
 
 ## Attention: P0–P3
+
+![Today view: priority queue, approval request and recent execution/recovery (synthetic recreation)](screenshots/today-attention.png)
+
+<sub>Recreated with synthetic data for this public edition. It shows the attention, approval and recovery concepts in one view.</sub>
 
 | Band | Meaning | Typical surface |
 | --- | --- | --- |
@@ -182,4 +188,4 @@ This repository has its own history. It was not forked, mirrored or filtered fro
 
 ---
 
-<sub>© Raul Mermans · see [LICENSE](LICENSE) and [SECURITY.md](SECURITY.md)</sub>
+<sub>© Raul Mermans · docs CC BY 4.0, code MIT (see [LICENSE](LICENSE)) · [SECURITY.md](SECURITY.md)</sub>
