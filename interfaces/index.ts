@@ -1,5 +1,5 @@
 /**
- * JARVIS OS — illustrative public contracts (entry point).
+ * IRIS OS — illustrative public contracts (entry point).
  * Type-only; there is intentionally no runtime implementation in this repository.
  */
 export * from './common';

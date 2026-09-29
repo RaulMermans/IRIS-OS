@@ -1,6 +1,6 @@
 # Memory system
 
-JARVIS treats memory as several stores with different trust levels, not one big vector database. Operational state, execution history and curated knowledge are kept strictly apart.
+IRIS treats memory as several stores with different trust levels, not one big vector database. Operational state, execution history and curated knowledge are kept strictly apart.
 
 ## Four kinds of memory
 

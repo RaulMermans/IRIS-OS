@@ -41,7 +41,7 @@ flowchart LR
 - **Urgency**: time pressure and deadlines.
 - **Confidence**: how well the evidence supports the item.
 - **Risk**: what goes wrong if it's ignored, or if it's acted on incorrectly.
-- **Autonomy**: whether JARVIS can resolve it itself, needs approval, or can only inform.
+- **Autonomy**: whether IRIS can resolve it itself, needs approval, or can only inform.
 - **Notification relevance**: whether it deserves an interruption, or just a place on the list.
 
 The production formula, the signal weights, the band thresholds and the output cap are intentionally not published.

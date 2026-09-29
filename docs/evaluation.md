@@ -1,6 +1,6 @@
 # Evaluation
 
-JARVIS treats evaluation as part of the architecture, not a report written afterwards. A capability isn't considered real until there is a test proving the right behavior *and* a test proving the wrong behavior is refused.
+IRIS treats evaluation as part of the architecture, not a report written afterwards. A capability isn't considered real until there is a test proving the right behavior *and* a test proving the wrong behavior is refused.
 
 ## Layers
 

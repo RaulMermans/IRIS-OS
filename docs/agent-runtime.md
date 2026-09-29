@@ -1,6 +1,6 @@
 # Agent runtime
 
-JARVIS coordinates a small, fixed team of specialist agents. They are **bounded collaborators, not autonomous actors**. They reason, research, plan and critique, and they express everything as structured proposals and trace events.
+IRIS coordinates a small, fixed team of specialist agents. They are **bounded collaborators, not autonomous actors**. They reason, research, plan and critique, and they express everything as structured proposals and trace events.
 
 ## The team
 

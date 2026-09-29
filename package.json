@@ -1,7 +1,7 @@
 {
-  "name": "jarvis-os-public",
+  "name": "iris-os-public",
   "private": true,
-  "description": "JARVIS OS — public architecture edition. Illustrative type-only contracts.",
+  "description": "IRIS OS — public architecture edition. Illustrative type-only contracts.",
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "typecheck": "tsc --noEmit -p ."

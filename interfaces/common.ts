@@ -1,5 +1,5 @@
 /**
- * JARVIS OS — illustrative public contracts.
+ * IRIS OS — illustrative public contracts.
  *
  * Written from scratch for the public edition. These types show the shape of
  * the system's core concepts; they are NOT the production schemas, and they

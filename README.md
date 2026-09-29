@@ -1,6 +1,6 @@
 <div align="center">
 
-# JARVIS OS
+# IRIS OS
 
 **A personal AI operating system that answers one question every morning:
 _what needs my attention today?_**
@@ -9,19 +9,19 @@ It collects context from calendar, email, tasks, projects, relationships and mem
 
 ![Status: public architecture edition](https://img.shields.io/badge/status-public%20architecture%20edition-555) ![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey) ![Code: MIT](https://img.shields.io/badge/code-MIT-lightgrey) ![Private system: V1 pre-HALO](https://img.shields.io/badge/private%20system-V1%20pre--HALO-2f6f4f)
 
-![Agent Galaxy — JARVIS delegating from the research agent to the analyst](screenshots/galaxy-delegation.png)
+![Agent Galaxy — IRIS delegating from the research agent to the analyst](screenshots/galaxy-delegation.png)
 
-<sub>The Agent Galaxy: JARVIS is the central body, and each specialist agent is a star. Here the research agent hands evidence to the analyst. All data in these screenshots is synthetic.</sub>
+<sub>The Agent Galaxy: IRIS is the central body, and each specialist agent is a star. Here the research agent hands evidence to the analyst. All data in these screenshots is synthetic.</sub>
 
 </div>
 
 ---
 
-> **Public repository scope.** This is the public architecture and engineering showcase of JARVIS OS. The full system lives in a private monorepo, with personal integrations, production policies and private data. This edition documents how the system is designed and why, through re-authored docs, illustrative TypeScript contracts and fully synthetic examples. [More below](#public-repository-scope).
+> **Public repository scope.** This is the public architecture and engineering showcase of IRIS OS. The full system lives in a private monorepo, with personal integrations, production policies and private data. This edition documents how the system is designed and why, through re-authored docs, illustrative TypeScript contracts and fully synthetic examples. [More below](#public-repository-scope).
 
 ## Why it exists
 
-Knowledge work arrives through too many channels: meetings, threads, commitments, half-finished projects, people waiting on you. Most "AI assistants" answer this by acting more. JARVIS takes the opposite position:
+Knowledge work arrives through too many channels: meetings, threads, commitments, half-finished projects, people waiting on you. Most "AI assistants" answer this by acting more. IRIS takes the opposite position:
 
 - **Attention is the scarce resource.** The system's first job is to decide what matters and explain why, with evidence. Doing things comes second.
 - **Autonomy is earned, not assumed.** Agents propose. A deterministic policy decides what may run automatically, what needs a human, and what is never allowed.
@@ -62,11 +62,11 @@ flowchart LR
   OBS --> EVAL[Evaluation]
 ```
 
-One authoritative router sits in front of every capability. One attention engine feeds both the Today view and the Morning Brief. One action pipeline governs every consequential side effect. JARVIS avoids parallel "second paths" on purpose. → [docs/architecture.md](docs/architecture.md)
+One authoritative router sits in front of every capability. One attention engine feeds both the Today view and the Morning Brief. One action pipeline governs every consequential side effect. IRIS avoids parallel "second paths" on purpose. → [docs/architecture.md](docs/architecture.md)
 
 ## Key engineering concepts
 
-| Concept | What it means in JARVIS |
+| Concept | What it means in IRIS |
 | --- | --- |
 | **Evidence-required attention** | An attention item cannot exist without at least one reference to a real source record. Raw email bodies and notes never cross the wire contract. |
 | **Deterministic before generative** | Collection, filtering, dedup and baseline scoring are pure and testable. A model only groups, explains and orders a *pre-qualified* set, and its output is validated. |
@@ -74,7 +74,7 @@ One authoritative router sits in front of every capability. One attention engine
 | **Propose ≠ authorize** | Agents can only produce an action *proposal*. Nothing lets an actor authorize itself. |
 | **Autonomy ladder** | Each action type is registered once at a fixed autonomy level, from read-only to destructive. Model reasoning can't raise or lower it at runtime. |
 | **Execution ≠ verification** | "The API returned 200" is not "it worked". Verification is a separate fact with its own status. |
-| **Fail closed** | Unknown action types, stale context, expired approvals and ambiguous writes stop the action. JARVIS never guesses. |
+| **Fail closed** | Unknown action types, stale context, expired approvals and ambiguous writes stop the action. IRIS never guesses. |
 | **Durable & resumable** | Work survives crashes and restarts without duplicating consequential effects. |
 | **Observable by construction** | Workflows, agents and actions all emit one trace-event shape, so one inspector understands all of them. |
 
@@ -91,7 +91,7 @@ One authoritative router sits in front of every capability. One attention engine
 | **P2** | Worth doing this week; schedule it | Today list |
 | **P3** | Background awareness | Collapsed, never notifies |
 
-A band is a judgment over several factors: **importance, urgency, confidence, risk, autonomy, and notification relevance**. The brief is deliberately capped, so JARVIS surfaces a short, defensible list instead of an inbox. → [docs/attention-system.md](docs/attention-system.md)
+A band is a judgment over several factors: **importance, urgency, confidence, risk, autonomy, and notification relevance**. The brief is deliberately capped, so IRIS surfaces a short, defensible list instead of an inbox. → [docs/attention-system.md](docs/attention-system.md)
 
 ## Memory
 
@@ -124,7 +124,7 @@ The system is judged on behavior, not vibes. Deterministic scenario suites cover
 
 ## The Agent Galaxy
 
-The primary interface is a living constellation. JARVIS is the central body, and eight specialist agents orbit it as persistent stars. Their state (idle, thinking, working, reviewing, waiting for approval) and their hand-offs are rendered straight from the runtime's truthful state projection, not an animation script.
+The primary interface is a living constellation. IRIS is the central body, and eight specialist agents orbit it as persistent stars. Their state (idle, thinking, working, reviewing, waiting for approval) and their hand-offs are rendered straight from the runtime's truthful state projection, not an animation script.
 
 | Thinking | Working | Reviewing |
 | --- | --- | --- |
