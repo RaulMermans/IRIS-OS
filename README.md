@@ -32,26 +32,16 @@ The design rule behind all three: *build the deterministic, permissioned, traced
 ## Architecture at a glance
 
 ```mermaid
-flowchart LR
-  subgraph Sources["Context sources"]
-    CAL[Calendar]
-    GM[Gmail]
-    TK[Tasks]
-    PJ[Projects]
-    RL[Relationships]
-    MEM[(Memory)]
-  end
-
-  subgraph Attention["Attention"]
-    COL[Collect & privacy-filter] --> DED[Deduplicate] --> SCO[Evidence-backed scoring] --> SYN[Bounded synthesis] --> VAL[Validate]
-  end
+flowchart TB
+  SRC[Context sources<br/>calendar · gmail · tasks · projects · relationships · memory]
+  ATT[Attention pipeline<br/>collect · privacy-filter · dedupe · evidence-backed scoring · bounded synthesis · validate]
 
   subgraph Exec["Executive layer"]
+    direction LR
     EP[Executive Policy<br/>priority · autonomy · risk · notification] --> Q[[Durable P0–P3 queue]] --> SUP[POLARIS Supervisor]
   end
 
-  Sources --> COL
-  VAL --> EP
+  SRC --> ATT --> EP
   SUP --> TEAM[Agent team<br/>runtime skills · GPA checks]
   TEAM -->|proposes| GOV{Governed action policy}
   SUP -->|proposes| GOV
