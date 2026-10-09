@@ -46,6 +46,29 @@ flowchart LR
 
 The production formula, the signal weights, the band thresholds and the output cap are intentionally not published.
 
+## From attention to execution
+
+Attention decides what matters. A separate, pure **Executive Policy** then decides what may happen next, over the same evidence:
+
+- **Autonomy is computed first and independently of priority.** An unknown action is forbidden, a destructive one needs explicit confirmation, an external or irreversible one needs approval, and only the rest is autonomous-safe. A high priority never buys autonomy.
+- **Relevance can drop work.** Known noise and low-band, non-actionable passive signals are marked irrelevant instead of cluttering the queue. A direct user request is always relevant.
+- **Confidence can only be raised by trusted evidence.** A model's interpretation can lower it, never raise it.
+- **Notification is its own decision:** silent, digest, notify, or decision required.
+
+The result goes into one durable, prioritized work queue. Workers claim items with leases, so a P1 claimed by a worker that crashes is recovered and run once by the next one. While a P0 is in focus, new lower-priority work waits; already-running work is not preempted.
+
+```mermaid
+flowchart LR
+  A[Attention item<br/>evidence-backed] --> EP[Executive Policy]
+  EP --> AU[Autonomy]
+  EP --> PR[Priority P0–P3]
+  EP --> NO[Notification]
+  EP --> RE[Relevance]
+  AU & PR & NO & RE --> Q[[Durable queue]]
+```
+
+See [`interfaces/executive.ts`](../interfaces/executive.ts) for the illustrative `ExecutiveAssessment`.
+
 ## Guarantees
 
 - **No evidence, no item.** The contract requires at least one source reference, so a fabricated priority can't be represented.

@@ -4,7 +4,7 @@
  */
 import type { Actor, AgentId, EvidenceRef, Id, NonEmptyArray, Timestamp } from './common';
 
-/** A0 read · A1 internal low-risk · A2 consequential · A3 high-impact · A4 destructive (blocked). */
+/** A0 read · A1 internal low-risk · A2 internal consequential · A3 external · A4 destructive (explicit confirmation; none enabled). */
 export type AutonomyLevel = 'A0' | 'A1' | 'A2' | 'A3' | 'A4';
 
 export type Reversibility = 'reversible' | 'irreversible';

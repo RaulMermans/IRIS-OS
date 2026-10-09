@@ -47,11 +47,11 @@ On top of that sits an **autonomy ladder**. Every action type is assigned exactl
 
 | Level | Posture |
 | --- | --- |
-| A0 | Read-only, always automatic |
+| A0 | Read-only, automatic |
 | A1 | Internal and low-risk, automatic |
-| A2 | Consequential, approval required |
-| A3 | High-impact, approval with extra scrutiny |
-| A4 | Destructive, blocked with no approval path in this phase |
+| A2 | Internal and consequential; approval if irreversible |
+| A3 | External effect, approval required |
+| A4 | Destructive: explicit confirmation required, and no destructive action type is enabled in the current phase |
 
 A model's reasoning can't change which level applies. Which action types sit at which level is production policy and isn't published.
 
@@ -72,6 +72,10 @@ Each failure class maps to one explicit strategy. Nothing is "retry everything".
 | Duplicate event or scheduler tick | Idempotent dedupe |
 | Budget exhausted | Defer or suppress; never exceed the bound |
 | Reasoning unavailable | Route to clarification; never guess |
+| Result truthful but doesn't achieve the task (GPA) | Retry once, reassign to another eligible specialist, or replan within budget; otherwise escalate |
+| Decision surface (e.g. Slack) down | The decision stays pending; an outage can never imply approval |
+| Duplicate or replayed approval callback | Resolves to the one stored response; no second execution |
+| Proposal changed after the request was sent | Old request is superseded; a new decision is required |
 
 ## Invariants
 
@@ -80,5 +84,10 @@ Each failure class maps to one explicit strategy. Nothing is "retry everything".
 - **Execution and verification are separate facts.**
 - **Single owner.** Durable leases ensure only one worker drives an action at a time; a restart resumes from the last checkpoint.
 - **Approvals are bound to a single run and they expire.**
+- **Approvals are bound to the exact proposal and policy version.** Responses carry an authenticated principal and an idempotency key; the response is persisted before a worker applies it, so a crash in between executes the action exactly once after restart (tested across two real processes).
+
+## Known gap
+
+"Request changes" stores the feedback and rejects the old proposal, but can't yet restart the originating work item with a revised proposal. The decision outcome says exactly that instead of promising a replan.
 
 See [`interfaces/approval.ts`](../interfaces/approval.ts) and [`interfaces/execution.ts`](../interfaces/execution.ts).
