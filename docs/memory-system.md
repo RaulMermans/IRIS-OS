@@ -54,7 +54,32 @@ Retrieval is a gateway, never filesystem or database access from a caller. It re
 
 ## Consolidation
 
-Episodic history is periodically distilled into candidate semantic facts and procedural lessons. Consolidation also produces **proposals**, subject to the same review.
+The design distils episodic history into candidate semantic facts and procedural lessons, always as **proposals** subject to the same review. Today the implemented part is narrower: decision outcomes are aggregated into `LearningCandidate` records (see [governed-learning.md](governed-learning.md)). Automatic consolidation into semantic or procedural memory is not implemented.
+
+## Memory vs other state
+
+Memory is easy to confuse with things that merely persist. IRIS keeps them apart:
+
+| Kind | Purpose | Is it memory? |
+| --- | --- | --- |
+| Working / task memory | What one run sees | Yes, short-lived |
+| Episodic memory | Verified decisions, episodes and outcomes | Yes |
+| Semantic memory | Reviewed facts | Yes |
+| Procedural memory | Versioned runtime skills and procedures | Yes |
+| Run state | Where a run is (status, current step, lease) | No: execution state |
+| Checkpoints | What a resumed run needs to continue without repeating effects | No: recovery state |
+| Artifacts and logs | Outputs and traces, with provenance | No: evidence that memory can cite |
+
+## Implementation status
+
+| Kind | State |
+| --- | --- |
+| Working / task memory | Implemented: bounded, scoped context packs |
+| Episodic | Implemented: append-only executive episodes and outcomes |
+| Semantic | Proposal-only write path and reviewed curated store implemented; not yet wired into the executive layer's reader |
+| Procedural | Implemented as runtime skills (one production-ready, nine evaluation-only) |
+
+Memory never authorizes anything. Shadow Mode measures whether relevant memory helps a read-only specialist; one real comparison so far was neutral, and helped/hurt verdicts need stronger outcome labels before they're claimed.
 
 ## Boundaries
 

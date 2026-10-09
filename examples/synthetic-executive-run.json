@@ -1,0 +1,52 @@
+{
+  "_note": "Fully synthetic. Shaped like interfaces/executive.ts. Continues the calendar-conflict story in synthetic-task.json; no real people, events or policy values.",
+  "assessment": {
+    "workItemId": "wi_001",
+    "relevant": true,
+    "priority": "P1",
+    "autonomy": "approval_required",
+    "notification": "decision_required",
+    "confidence": 0.9,
+    "risk": "elevated",
+    "reasons": [
+      { "code": "external_calendar_change", "evidenceIds": ["ev_cal_101", "ev_cal_102"] },
+      { "code": "same_day_deadline", "evidenceIds": ["ev_cal_101"] }
+    ],
+    "assessedAt": "2030-03-14T08:02:10+01:00"
+  },
+  "supervisorDecision": {
+    "workItemId": "wi_001",
+    "target": { "kind": "governed_action", "actionType": "calendar.move_event" },
+    "invariantViolations": [],
+    "decidedAt": "2030-03-14T08:02:11+01:00"
+  },
+  "decisionRequest": {
+    "id": "dr_014",
+    "workspaceId": "ws_demo",
+    "proposalFingerprint": "sha256:synthetic-0001",
+    "title": "Move 'Weekly 1:1' to 14:00?",
+    "summary": "Resolves the 11:00 overlap with 'Harbor Labs kickoff'. One attendee affected.",
+    "risk": "elevated",
+    "options": ["approve", "reject", "request_changes"],
+    "evidence": [
+      { "id": "ev_cal_101", "source": "calendar", "sourceRecordId": "cal_201", "title": "Weekly 1:1", "occurredAt": "2030-03-14T11:00:00+01:00" },
+      { "id": "ev_cal_102", "source": "calendar", "sourceRecordId": "cal_202", "title": "Harbor Labs kickoff", "occurredAt": "2030-03-14T11:00:00+01:00" }
+    ],
+    "expiresAt": "2030-03-14T10:00:00+01:00",
+    "status": "resolved"
+  },
+  "decisionResponse": {
+    "requestId": "dr_014",
+    "option": "approve",
+    "principalId": "principal_demo_owner",
+    "idempotencyKey": "dr_014:approve:1",
+    "respondedAt": "2030-03-14T08:05:40+01:00"
+  },
+  "goalEvaluation": {
+    "level": "goal",
+    "verdict": "pass",
+    "tier": "L1",
+    "issueCodes": [],
+    "evidenceRefs": ["verification_cal_77"]
+  }
+}
